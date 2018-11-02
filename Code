@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    //Randomize Number
+    srand(time(NULL));
+    int randNum = rand() % 100 + 1;
+    //wrong = keep loop going, guess = users guess, numberOfGuesses = number of guesses done
+    int wrong = 1, guess, numberOfGuesses = 0;
+    //printf("%d", randNum);
+    printf("Guess my secret number between 1 and 100: \n");
+    while(wrong){
+        numberOfGuesses++;
+        scanf("%d", &guess);
+        //Check if guess is right
+        if(guess == randNum){
+            printf("You guessed correctly on %d guesses!", numberOfGuesses);
+            wrong = 0;
+        }
+        //Chech if the number is lower than the guessed number
+        else if(randNum < guess){
+            printf("My number is lower, try again! \n");
+        }
+        //If the number is higher than the guessed number
+        else{
+            printf("My number is higher, try again! \n");
+        }
+    }
+    return 0;
+}
